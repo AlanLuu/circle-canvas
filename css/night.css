@@ -1,0 +1,44 @@
+@keyframes paragraphsChangeColor {
+    10% {
+        text-shadow: 5px 5px 5px blue;
+    }
+    30% {
+        text-shadow: 5px 5px 5px red;
+    }
+    65% {
+        text-shadow: 5px 5px 5px red;
+    }
+    to {
+        text-shadow: 5px 5px 5px blue;
+    }
+}
+
+@keyframes bodyChangeColor {
+    10% {
+        background-color: rgb(29, 10, 150);
+    }
+    30% {
+        background-color: rgb(29, 8, 96);
+    }
+    65% {
+        background-color: rgb(29, 8, 96);
+    }    
+    to {
+        background-color: rgb(29, 10, 150);
+    }
+}
+
+.paragraphs {
+    color: rgb(9, 160, 102);
+    text-shadow: 5px 5px 5px blue;
+    animation-name: paragraphsChangeColor;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+}
+
+body {
+    background-color: rgb(29, 10, 150);
+    animation-name: bodyChangeColor;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+}

@@ -1,0 +1,28 @@
+@keyframes bodyChangeColor {
+    10% {
+        background-color: rgb(0, 215, 245);
+    }
+    30% {
+        /*background-color: rgb(255, 215, 245);*/
+        background-color: rgb(0, 190, 255);
+    }
+    65% {
+        /*background-color: rgb(255, 215, 245);*/
+        background-color: rgb(0, 190, 255);
+    }    
+    to {
+        background-color: rgb(0, 215, 245);
+    }
+}
+
+.paragraphs {
+    color: black;
+    text-shadow: 5px 5px 5px blue;
+}
+
+body {
+    background-color: rgb(0, 215, 245);
+    animation-name: bodyChangeColor;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+}

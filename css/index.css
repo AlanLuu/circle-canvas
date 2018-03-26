@@ -1,0 +1,48 @@
+html {
+    height: 100%;
+}
+
+.buttonClass button {
+    background-color: green;
+    border: 2px solid black;
+    color: white;
+    padding: 10px;
+    font-style: italic;
+    font-size: 12px;
+    cursor: pointer; /* Pointer/hand icon */
+    float: left; /* Float the buttons side by side */
+    font-family: arial, sans-serif;
+    width: 25%;
+    /*transition-duration: 0.4s;*/
+}
+
+.buttonClass button:not(:last-child) {
+    border-right: none; /* Prevent double borders */
+}
+
+/* Clear floats (clearfix hack) */
+.buttonClass:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Add a background color on hover */
+.buttonClass button:hover {
+    background-color: #3e8e41;
+} 
+
+/* CSS used to style a disabled button */
+.buttonClass button:disabled {
+    background-color: #5e6577;
+}
+
+#debugData {
+    margin-bottom: 40px;
+}
+
+.paragraphs {
+    font-family: 'Dhurjati', arial, sans-serif;
+    font-size: 20px;
+    line-height: 10pt;
+}

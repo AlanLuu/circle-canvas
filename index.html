@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <title>Circle canvas</title>
+    <link href="https://fonts.googleapis.com/css?family=Dhurjati" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet" type="text/css">
+    <script src="js/date.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <noscript>
+      <div class="paragraphs">
+        <h2>Sorry, but it seems your browser doesn't have JavaScript enabled. :/</h2>
+        <p>You must enable JavaScript if you want to use the canvas and render the rest of the CSS.</p>
+      </div>
+    </noscript>
+    <canvas id="canvas" width="500px" height="500px" style="border: 1px solid black; background-color: #FFFFFF">
+      <span class="paragraphs" id="noJsSpan">Sorry, either your browser doesn't support the HTML5 canvas element, or JavaScript is disabled.</span>
+    </canvas>
+    <script src="js/canvas.js"></script>
+    <div class="paragraphs" id="debugData">
+      <p id="screenWidth"></p>
+      <p id="screenHeight"></p>
+      <p id="canvasWidth"></p>
+      <p id="canvasHeight"></p>
+      <p id="userAgent"></p>
+    </div>
+    <div class="paragraphs">
+      <p id="velocityCounter"></p>
+      <p id="circlePos"></p>
+      <p id="mobileCounter"></p>
+    </div>
+    <div class="buttonClass" style="width: 100%">
+      <button id="button1">Stop the circle!</button>
+      <button id="button2">Set the circle speed!</button>
+      <button id="button3">Show debug data</button>
+      <button id="button4">Hide debug data</button>
+    </div>
+  </body>
+</html>
