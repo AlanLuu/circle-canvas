@@ -5,12 +5,13 @@
 
 const canvas = document.getElementById("canvas"); 
 const context = canvas.getContext("2d"); 
+const log = console.log, print = console.log;
 
 /*
- Set the canvas's width to fill the screen width, with 20px margins on each edge, and the canvas's height to take up
+ Sets the canvas's width to fill the screen width, with 20px margins on each edge, and the canvas's height to take up
  half of the screen's height, rounded up.
  
- The default canvas width and height is 500px.
+ The default canvas width and height are both 500px.
 */
 canvas.width = screen.width - 20;
 canvas.height = Math.round(screen.height / 2); 
@@ -105,7 +106,7 @@ function mouseMoved(mouse) {
     mouseY = mouse.clientY;
 }
 
-//This function handles when the user runs this website on a mobile browser and touches the canvas.
+//This function handles when the user visits this website on a mobile browser and touches the canvas.
 function touchMoved(touch) {
     touchX = touch.clientX;
     touchY = touch.clientY;
