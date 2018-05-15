@@ -30,7 +30,7 @@ var interval;
 
 $(document).ready(function() {
     $("#velocityCounter").html(`Circle speed: ${velocity}`);
-    interval = setInterval(function(){$("#circlePos").html(`Circle position: (${x}, ${y})`)}, 1000/30);
+    interval = setInterval(function(){$("#circlePos").html(`Circle position: (${Math.floor(x)}, ${Math.floor(y)})`)}, 1000/30);
     $("#mobileCounter").html(`Mobile device: ${detectMob() ? "Yes" : "No"}`);
     $("#screenWidth").html(`Screen width: ${screen.width}`);
     $("#screenHeight").html(`Screen height: ${screen.height}`);
@@ -44,7 +44,7 @@ $(document).ready(function() {
         velocity = 0, x = Math.round(canvas.width / 2), y = Math.round(canvas.height / 2);
         clearInterval(interval);
         document.getElementById("velocityCounter").innerHTML = `Circle speed: ${velocity}`;
-        document.getElementById("circlePos").innerHTML = `Circle position: (${x}, ${y})`;
+        document.getElementById("circlePos").innerHTML = `Circle position: (${Math.floor(x)}, ${Math.floor(y)})`;
     });
     
     //This function enables the user to enter a custom value for the circle's speed.
@@ -53,7 +53,8 @@ $(document).ready(function() {
         if (userInput == parseFloat(userInput, 10)) {
             userInput = parseFloat(userInput, 10);
             velocity = userInput;
-            interval = setInterval(function(){document.getElementById("circlePos").innerHTML = `Circle position: (${x}, ${y})`}, 1000/30);
+            interval = setInterval(function(){document.getElementById("circlePos").innerHTML = `Circle position: 
+            (${Math.floor(x)}, ${Math.floor(y)})`}, 1000/30);
             document.getElementById("velocityCounter").innerHTML = `Circle speed: ${velocity}`;
         }
     });
@@ -68,10 +69,11 @@ $(document).ready(function() {
         $("#debugData").hide();
     });
     
-    //Changes the circle's color every two seconds.
+    //Changes the circle's color every four seconds.
     setInterval(function() {
         randomColor = getRandomColor();
-    }, 2000);
+        $("#colorCode").html(`Color HEX code: ${randomColor}`);
+    }, 4000);
     
 });
 
@@ -137,10 +139,11 @@ function calculatePosition() {
         x += velocity;
     } else if (mouseX < x || touchX < x) { 
         x -= velocity;
-    }
+    } 
+    
     if (mouseY > y || touchY > y) {  
         y += velocity;
     } else if (mouseY < y || touchY < y) { 
         y -= velocity;
-    }
+    } 
 }
