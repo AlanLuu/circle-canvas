@@ -29,7 +29,7 @@ var randomColor = getRandomColor();
 var interval;
 
 $(document).ready(function() {
-    $("#velocityCounter").html(`Circle velocity: ${velocity}`);
+    $("#velocityCounter").html(`Circle speed: ${velocity}`);
     interval = setInterval(function(){$("#circlePos").html(`Circle position: (${x}, ${y})`)}, 1000/30);
     $("#mobileCounter").html(`Mobile device: ${detectMob() ? "Yes" : "No"}`);
     $("#screenWidth").html(`Screen width: ${screen.width}`);
@@ -43,7 +43,7 @@ $(document).ready(function() {
     $("#button1").click(function() {
         velocity = 0, x = Math.round(canvas.width / 2), y = Math.round(canvas.height / 2);
         clearInterval(interval);
-        document.getElementById("velocityCounter").innerHTML = `Circle velocity: ${velocity}`;
+        document.getElementById("velocityCounter").innerHTML = `Circle speed: ${velocity}`;
         document.getElementById("circlePos").innerHTML = `Circle position: (${x}, ${y})`;
     });
     
@@ -54,7 +54,7 @@ $(document).ready(function() {
             userInput = parseFloat(userInput, 10);
             velocity = userInput;
             interval = setInterval(function(){document.getElementById("circlePos").innerHTML = `Circle position: (${x}, ${y})`}, 1000/30);
-            document.getElementById("velocityCounter").innerHTML = `Circle velocity: ${velocity}`;
+            document.getElementById("velocityCounter").innerHTML = `Circle speed: ${velocity}`;
         }
     });
     
