@@ -31,7 +31,7 @@ var interval;
 $(document).ready(function() {
     $("#velocityCounter").html(`Circle speed: ${velocity}`);
     interval = setInterval(function(){$("#circlePos").html(`Circle position: (${Math.floor(x)}, ${Math.floor(y)})`)}, 1000/30);
-    $("#colorCode").html(`Color HEX code: ${randomColor}`);
+    if (!detectMob()) $("#colorCode").html(`Color HEX code: ${randomColor}`);
     $("#mobileCounter").html(`Mobile device: ${detectMob() ? "Yes" : "No"}`);
     $("#screenWidth").html(`Screen width: ${screen.width}`);
     $("#screenHeight").html(`Screen height: ${screen.height}`);
@@ -73,7 +73,7 @@ $(document).ready(function() {
     //Changes the circle's color every four seconds.
     setInterval(function() {
         randomColor = getRandomColor();
-        $("#colorCode").html(`Color HEX code: ${randomColor}`);
+        if (!detectMob()) $("#colorCode").html(`Color HEX code: ${randomColor}`);
     }, 4000);
     
 });
