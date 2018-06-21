@@ -24,24 +24,48 @@ var touchX = detectMob() ? Math.round(canvas.width / 2) : null; //If the user is
 var touchY = detectMob() ? Math.round(canvas.height / 2) : null; //If the user is using a mobile device, this represents the y value of where the user touched the canvas.
 var velocity = 2; //The speed the circle moves at.
 var circleRadius = detectMob() ? 20 : 40;
-const pi = Math.PI; //Pi = π
+const pi = Math.PI; 
 var randomColor = getRandomColor();
 var interval;
 
-$(document).ready(function() {
+$(document).ready(() => {
     $("#velocityCounter").html(`Circle speed: ${velocity}`);
     interval = setInterval(function(){$("#circlePos").html(`Circle position: (${Math.floor(x)}, ${Math.floor(y)})`)}, 1000/30);
-    if (!detectMob()) $("#colorCode").html(`Color HEX code: ${randomColor}`);
+    if (!detectMob()) {
+        var colorCode = document.createElement("p");
+        $(colorCode).html(`Color HEX code: ${randomColor}`);
+        $("#data").append(colorCode);
+    }
+    
     $("#mobileCounter").html(`Mobile device: ${detectMob() ? "Yes" : "No"}`);
-    $("#screenWidth").html(`Screen width: ${screen.width}`);
-    $("#screenHeight").html(`Screen height: ${screen.height}`);
-    $("#canvasWidth").html(`Canvas width: ${canvas.width}`);
-    $("#canvasHeight").html(`Canvas height: ${canvas.height}`);
-    $("#userAgent").html(navigator.userAgent);
-    $("#debugData").hide();
+    
+    (() => {
+        var elementArray = [];
+        var textArray = [
+            `Screen width: ${screen.width}`,
+            `Screen height: ${screen.height}`,
+            `Canvas width: ${canvas.width}`,
+            `Canvas height: ${canvas.height}`,
+            navigator.userAgent
+        ];
+        
+        //Creates a new <p> element for each string in textArray and stores them in elementArray.
+        textArray.forEach((element, index) => { 
+            let data = document.createElement("p");
+            elementArray.push(data);
+        });
+        
+        //Sets the innerHTML of those <p> elements to the strings in textArray and appends them to the debugData <div>.
+        for (let i = 0; i < elementArray.length; i++) { 
+            $(elementArray[i]).html(textArray[i]);
+            $("#debugData").append(elementArray[i]);
+        }
+        $("#debugData").hide();
+        
+    })();
     
     //This function stops the circle and resets its position to the center of the canvas.
-    $("#button1").click(function() {
+    $("#button1").click(() => {
         velocity = 0, x = Math.round(canvas.width / 2), y = Math.round(canvas.height / 2);
         clearInterval(interval);
         document.getElementById("velocityCounter").innerHTML = `Circle speed: ${velocity}`;
@@ -49,7 +73,7 @@ $(document).ready(function() {
     });
     
     //This function enables the user to enter a custom value for the circle's speed.
-    $("#button2").click(function() {
+    $("#button2").click(() => {
         var userInput = window.prompt("Enter a speed value.");
         if (userInput == parseFloat(userInput, 10)) {
             userInput = parseFloat(userInput, 10);
@@ -60,20 +84,20 @@ $(document).ready(function() {
         }
     });
     
-    $("#button3").click(function(event) {
+    $("#button3").click((event) => {
         event.preventDefault();
         $("#debugData").show();
     });   
     
-    $("#button4").click(function(event) {
+    $("#button4").click((event) => {
         event.preventDefault();
         $("#debugData").hide();
     });
     
     //Changes the circle's color every four seconds.
-    setInterval(function() {
+    setInterval(() => {
         randomColor = getRandomColor();
-        if (!detectMob()) $("#colorCode").html(`Color HEX code: ${randomColor}`);
+        if (!detectMob()) $(colorCode).html(`Color HEX code: ${randomColor}`);
     }, 4000);
     
 });
@@ -128,7 +152,7 @@ function touchMoved(touch) {
 function getRandomColor() {
     var letters = '0123456789ABCDEF';
     var color = "#";
-    for (var i = 0; i < 6; i++) {
+    for (let i = 0; i < 6; i++) {
         color += letters[Math.floor(Math.random() * letters.length)];
     }
     return color;
@@ -140,7 +164,7 @@ function calculatePosition() {
         x += velocity;
     } else if (mouseX < x || touchX < x) { 
         x -= velocity;
-    } 
+    }
     
     if (mouseY > y || touchY > y) {  
         y += velocity;
