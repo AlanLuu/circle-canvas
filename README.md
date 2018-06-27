@@ -1,15 +1,15 @@
 Overview
 ------------------------------------------------------------------------
 This is a simple canvas with a circle that follows the user's mouse cursor. 
-The background colors are different depending on the time of day the user visits this website.
-The circle also changes to a random color every two seconds. 
+The website's background colors are different depending on the time of day the user visits this website.
+The circle also changes to a random color every four seconds. 
 <br/><br/>
-These two things are all accomplished using JavaScript. CSS keyframes are 
-also used to switch between two different background colors. 
+These things are all accomplished using JavaScript, jQuery, and CSS keyframes, which are being
+used to switch between two slightly different background colors.
 <br/><br/>
-Note that this canvas and the background colors showing are dependent on having JavaScript enabled. 
-Thus, if one has it disabled, this canvas **_will not_** work, and the background colors won't
-show, since they are being loaded in using the ```document.write()``` method.
+Note that the canvas and the background colors showing are dependent on having JavaScript enabled. 
+Thus, if one has it disabled, the canvas **_will not_** work, and the background colors won't
+show, since they are being loaded in via an external JavaScript file using the ```document.write()``` method.
 
 
 
