@@ -91,6 +91,9 @@ $(document).ready(() => {
         if (!isMobileDevice()) $(colorCode).html(`Color HEX code: ${randomColor}`);
     }, 4000);
     
+    if (isMobileDevice()) {
+        alert("Tap anywere on the canvas to interact with the circle!");
+    }
 });
 
 canvas.addEventListener(isMobileDevice() ? "click" : "mousemove", isMobileDevice() ? touchMoved : mouseMoved);
