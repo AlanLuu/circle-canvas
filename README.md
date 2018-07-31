@@ -13,7 +13,7 @@ show, since they are being loaded in via an external JavaScript file using the `
 
 
 
-[Link to website](https://luualan9545.github.io/circle-canvas/)
+[Link to website](https://alanluu.github.io/circle-canvas/)
 
 Random color generation
 ------------------------------------------------------------------------
